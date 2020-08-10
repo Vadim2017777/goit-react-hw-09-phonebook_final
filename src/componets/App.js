@@ -1,12 +1,17 @@
 import React, { Component, Suspense } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import { authOperations } from '../redux/auth';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 import routes from './routes';
 
 import Header from './Header/Header';
 import Body from './Body/Body';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.getUser();
+  }
   render() {
     return (
       <>
@@ -28,4 +33,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, { getUser: authOperations.getCurrentUser })(App);

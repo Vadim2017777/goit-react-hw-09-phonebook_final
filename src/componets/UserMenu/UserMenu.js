@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { authSelectors, authOperations } from '../redux/auth';
+import { authSelectors, authOperations } from '../../redux/auth';
 
 const styles = {
   container: {
@@ -26,10 +26,14 @@ const UserMenu = ({ avatar, name, onLogout }) => (
   </div>
 );
 
-const mapStateToProps = state => ({
-  // name: authSelectors.getUserName(state),
+const mSTP = state => ({
+  name: authSelectors.getUserName(state),
   avatar:
     'https://icon-library.net/images/avatar-icon-images/avatar-icon-images-10.jpg',
 });
 
-export default connect(mapStateToProps, null)(UserMenu);
+const mDTP = {
+  onLogout: authOperations.logOut,
+};
+
+export default connect(mSTP, mDTP)(UserMenu);

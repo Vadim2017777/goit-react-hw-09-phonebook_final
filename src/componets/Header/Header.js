@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { onChangeTheme } from '../../redux/Contact/contactActions';
+import contactsSelectors from '../../redux/Contact/contactsSelectors';
+import { authSelectors } from '../../redux/auth';
 
 import styleConxt from '../../contex/ThemeContext';
 
@@ -11,7 +13,7 @@ import Navigation from '../Navigation/Navigation';
 
 import UserMenu from '../UserMenu/UserMenu';
 
-const Header = ({ theme, toggleTheme }) => (
+const Header = ({ theme, toggleTheme, isAuthenticated }) => (
   <header
     style={{
       background: styleConxt[theme].headerBg,
@@ -19,7 +21,7 @@ const Header = ({ theme, toggleTheme }) => (
     }}
   >
     <Navigation />
-    <UserMenu />
+    {isAuthenticated && <UserMenu />}
 
     <div className={styles.theme_selector}>
       <span className={styles.label}>
@@ -38,6 +40,9 @@ const Header = ({ theme, toggleTheme }) => (
 );
 
 const mDTP = { toggleTheme: onChangeTheme };
-const mSTP = ({ themePhonebook }) => ({ theme: themePhonebook.theme });
+const mSTP = state => ({
+  theme: contactsSelectors.getTheme(state),
+  isAuthenticated: authSelectors.isAuthenticated(state),
+});
 
 export default connect(mSTP, mDTP)(Header);

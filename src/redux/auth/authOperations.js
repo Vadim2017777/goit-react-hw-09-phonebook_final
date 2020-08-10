@@ -32,7 +32,7 @@ const logIn = credentials => dispatch => {
     .post('/users/login', credentials)
     .then(response => {
       console.log(response);
-      // token.set(response.data.token);
+      token.set(response.data.token);
       dispatch(authActions.loginSuccess(response.data));
     })
     .catch(error => dispatch(authActions.loginError(error)));
