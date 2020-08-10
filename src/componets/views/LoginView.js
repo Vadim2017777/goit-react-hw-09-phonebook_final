@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { authOperations } from '../../redux/auth';
 
 import s from './views.module.css';
 
@@ -15,7 +18,7 @@ class LoginView extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    // this.props.onLogin({ ...this.state });
+    this.props.onLogin({ ...this.state });
     this.setState({ name: '', email: '', password: '' });
   };
 
@@ -58,4 +61,4 @@ class LoginView extends Component {
   }
 }
 
-export default LoginView;
+export default connect(null, { onLogin: authOperations.logIn })(LoginView);

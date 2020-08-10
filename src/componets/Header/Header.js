@@ -9,6 +9,8 @@ import styles from './Header.module.css';
 
 import Navigation from '../Navigation/Navigation';
 
+import UserMenu from '../UserMenu/UserMenu';
+
 const Header = ({ theme, toggleTheme }) => (
   <header
     style={{
@@ -17,6 +19,8 @@ const Header = ({ theme, toggleTheme }) => (
     }}
   >
     <Navigation />
+    <UserMenu />
+
     <div className={styles.theme_selector}>
       <span className={styles.label}>
         Toggle theme: {''}
