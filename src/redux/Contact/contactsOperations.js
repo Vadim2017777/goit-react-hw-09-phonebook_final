@@ -12,7 +12,7 @@ import {
   removeContactError,
 } from './contactActions';
 
-axios.defaults.baseURL = 'http://localhost:2000';
+axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
 const onFetchContacts = () => dispatch => {
   dispatch(fetchContactsRequest());

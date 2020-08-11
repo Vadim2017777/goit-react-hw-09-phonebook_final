@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { onFetchContacts } from '../../redux/Contact/contactsOperations';
 import { overlapToggle } from '../../redux/Contact/contactActions';
 
-import contactsSelectors from '../../redux/Contact/contactsSelectors';
+import { contactsSelectors } from '../../redux/Contact/index';
 
 import Notification from '../Natification/Natification';
 import ContactListForm from '../ContactForm/ContactForm';
