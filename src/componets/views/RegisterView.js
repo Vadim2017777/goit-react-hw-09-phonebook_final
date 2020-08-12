@@ -27,7 +27,7 @@ class RegisterView extends Component {
     const { name, email, password } = this.state;
 
     return (
-      <div>
+      <div className={s.views_body}>
         <h1>Register page</h1>
 
         <form onSubmit={this.handleSubmit} className={s.form}>

@@ -26,7 +26,7 @@ class LoginView extends Component {
     const { email, password } = this.state;
 
     return (
-      <div>
+      <div className={s.views_body}>
         <h1>Login page</h1>
 
         <form onSubmit={this.handleSubmit} className={s.form}>
