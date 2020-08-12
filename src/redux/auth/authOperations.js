@@ -18,7 +18,6 @@ const register = credentials => dispatch => {
   axios
     .post('/users/signup', credentials)
     .then(response => {
-      console.log(response);
       token.set(response.data.token);
       dispatch(authActions.registerSuccess(response.data));
     })
