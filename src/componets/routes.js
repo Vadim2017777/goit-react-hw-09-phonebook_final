@@ -10,7 +10,7 @@ export default [
     restricted: false,
   },
   {
-    path: '/register',
+    path: '/goit-react-hw-09-phonebook_final/register',
     label: 'Register',
     exact: true,
     component: lazy(() => import('./views/RegisterView.js')),
@@ -18,7 +18,7 @@ export default [
     restricted: true,
   },
   {
-    path: '/login',
+    path: '/goit-react-hw-09-phonebook_final/login',
     label: 'Login',
     exact: true,
     component: lazy(() => import('./views/LoginView.js')),
@@ -26,7 +26,7 @@ export default [
     restricted: false,
   },
   {
-    path: '/phonebook',
+    path: '/goit-react-hw-09-phonebook_final/phonebook',
     label: 'Phonebook',
     exact: true,
     component: lazy(() => import('./views/PhoneBookView')),

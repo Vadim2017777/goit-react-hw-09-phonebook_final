@@ -18,7 +18,7 @@ const Navigation = ({ isAuthenticated }) => (
 
     {isAuthenticated ? (
       <NavLink
-        to="/phonebook"
+        to="/goit-react-hw-09-phonebook_final/phonebook"
         exact
         className={s.menu_link}
         activeClassName={s.menu_ActiveLink}
@@ -29,7 +29,7 @@ const Navigation = ({ isAuthenticated }) => (
       <>
         {' '}
         <NavLink
-          to="/register"
+          to="/goit-react-hw-09-phonebook_final/register"
           exact
           className={s.menu_link}
           activeClassName={s.menu_ActiveLink}
@@ -37,7 +37,7 @@ const Navigation = ({ isAuthenticated }) => (
           Register
         </NavLink>
         <NavLink
-          to="/login"
+          to="/goit-react-hw-09-phonebook_final/login"
           exact
           className={s.menu_link}
           activeClassName={s.menu_ActiveLink}
