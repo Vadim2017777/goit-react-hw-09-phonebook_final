@@ -8,7 +8,7 @@ import s from './Navigation.module.css';
 const Navigation = ({ isAuthenticated }) => (
   <nav className={s.menu_navigation}>
     <NavLink
-      to="/"
+      to="/goit-react-hw-09-phonebook_final/"
       exact
       className={s.menu_link}
       activeClassName={s.menu_ActiveLink}

@@ -2,7 +2,7 @@ import { lazy } from 'react';
 
 export default [
   {
-    path: '/',
+    path: '/goit-react-hw-09-phonebook_final/',
     label: 'Home',
     exact: true,
     component: lazy(() => import('./views/HomeView.js')),

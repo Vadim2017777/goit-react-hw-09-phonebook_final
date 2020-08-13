@@ -4,7 +4,7 @@ import s from './Logo.module.css';
 
 const Logo = () => (
   <div>
-    <h2 className={s.phoneBook_item}>Phonebook</h2>
+    <h1 className={s.phoneBook_item}>Phonebook</h1>
   </div>
 );
 

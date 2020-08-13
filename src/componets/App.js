@@ -21,7 +21,17 @@ class App extends Component {
           <Header />
 
           <Body>
-            <Suspense fallback={<h1>Loading...</h1>}>
+            <Suspense
+              fallback={
+                <h1
+                  style={{
+                    margin: '0',
+                  }}
+                >
+                  Loading...
+                </h1>
+              }
+            >
               <Switch>
                 {routes.map(route =>
                   route.private ? (

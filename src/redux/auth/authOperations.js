@@ -12,32 +12,29 @@ const token = {
   },
 };
 
-const register = credentials => dispatch => {
+const register = credentials => async dispatch => {
   dispatch(authActions.registerRequest());
-
-  axios
-    .post('/users/signup', credentials)
-    .then(response => {
-      token.set(response.data.token);
-      dispatch(authActions.registerSuccess(response.data));
-    })
-    .catch(error => dispatch(authActions.registerError(error)));
+  try {
+    const { data } = await axios.post('/users/signup', credentials);
+    token.set(data.token);
+    dispatch(authActions.registerSuccess(data));
+  } catch (error) {
+    dispatch(authActions.registerError(error));
+  }
 };
 
-const logIn = credentials => dispatch => {
+const logIn = credentials => async dispatch => {
   dispatch(authActions.loginRequest());
-
-  axios
-    .post('/users/login', credentials)
-    .then(response => {
-      console.log(response);
-      token.set(response.data.token);
-      dispatch(authActions.loginSuccess(response.data));
-    })
-    .catch(error => dispatch(authActions.loginError(error)));
+  try {
+    const { data } = await axios.post('/users/login', credentials);
+    token.set(data.token);
+    dispatch(authActions.loginSuccess(data));
+  } catch (error) {
+    dispatch(authActions.loginError(error));
+  }
 };
 
-const getCurrentUser = () => (dispatch, getState) => {
+const getCurrentUser = () => async (dispatch, getState) => {
   const {
     auth: { token: persistedToken },
   } = getState();
@@ -48,23 +45,24 @@ const getCurrentUser = () => (dispatch, getState) => {
 
   token.set(persistedToken);
   dispatch(authActions.getCurrentUserRequest());
+  try {
+    const { data } = await axios.get('/users/current');
 
-  axios
-    .get('/users/current')
-    .then(({ data }) => dispatch(authActions.getCurrentUserSuccess(data)))
-    .catch(error => authActions.getCurrentUserError(error));
+    dispatch(authActions.getCurrentUserSuccess(data));
+  } catch (error) {
+    dispatch(authActions.getCurrentUserError(error));
+  }
 };
 
-const logOut = () => dispatch => {
+const logOut = () => async dispatch => {
   dispatch(authActions.logoutRequest());
-
-  axios
-    .post('/users/logout')
-    .then(() => {
-      token.unset();
-      dispatch(authActions.logoutSuccess());
-    })
-    .catch(error => dispatch(authActions.logoutError(error)));
+  try {
+    axios.post('/users/logout');
+    token.unset();
+    dispatch(authActions.logoutSuccess());
+  } catch (error) {
+    dispatch(authActions.logoutError(error));
+  }
 };
 
 export default { register, logOut, logIn, getCurrentUser };
