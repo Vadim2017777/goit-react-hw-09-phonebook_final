@@ -8,6 +8,8 @@ import contactsSelectors from '../../redux/Contact/contactsSelectors';
 
 import styleConxt from '../../contex/ThemeContext';
 
+import Button from '@material-ui/core/Button';
+
 import s from './ContactListItem.module.css';
 
 const TaskListItem = ({ theme, name, number, onRemove }) => (
@@ -23,9 +25,9 @@ const TaskListItem = ({ theme, name, number, onRemove }) => (
       <span className={s.taskListItem_number}>{number}</span>
     </p>
 
-    <button type="button" className={s.buttonPhoneLs} onClick={onRemove}>
+    <Button type="button" className={s.buttonPhoneLs} onClick={onRemove}>
       Delete
-    </button>
+    </Button>
   </li>
 );
 

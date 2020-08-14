@@ -8,16 +8,11 @@
 }
 
 .buttonPhoneLs {
-  display: block;
   width: 150px;
-  height: 30px;
-  background-color: #3c6a77;
-  border: 1px solid #3c6a77;
-  transition: all 0.5s ease-out;
-}
 
-.buttonPhoneLs:hover {
-  background-color: #9ab7ba;
+  background: linear-gradient(45deg, #3c6a77 30%, rgb(184, 178, 178) 90%);
+  box-shadow: 0 3px 5px 2px #3c6a77;
+  color: white;
 }
 
 .taskListItem_name {

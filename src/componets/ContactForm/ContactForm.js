@@ -11,6 +11,7 @@ import contactsSelectors from '../../redux/Contact/contactsSelectors';
 
 import Logo from '../Logo/Logo';
 import LogoSlide from '../Logo/transitions/Logo.module.css';
+import Button from '@material-ui/core/Button';
 
 import s from './ContactForm.module.css';
 
@@ -75,9 +76,9 @@ class ContactForm extends Component {
               onChange={this.handleInputChange}
             />
           </label>
-          <button type="submit" className={s.buttonPhonBk}>
+          <Button type="submit" className={s.buttonPhonBk}>
             Add contact
-          </button>
+          </Button>
         </form>
       </div>
     );

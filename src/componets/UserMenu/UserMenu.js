@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { authSelectors, authOperations } from '../../redux/auth';
+import Button from '@material-ui/core/Button';
+import s from './UserMenu.module.css';
 
 const styles = {
   container: {
@@ -18,11 +20,17 @@ const styles = {
 
 const UserMenu = ({ avatar, name, onLogout }) => (
   <div style={styles.container}>
-    <img src={avatar} alt="" width="32" style={styles.avatar} />
+    <img src={avatar} alt="avatar" width="32" style={styles.avatar} />
     <span style={styles.name}>Welcome, {name}</span>
-    <button type="button" onClick={onLogout}>
+    <Button
+      variant="contained"
+      color="primary"
+      type="button"
+      className={s.button}
+      onClick={onLogout}
+    >
       Logout
-    </button>
+    </Button>
   </div>
 );
 
