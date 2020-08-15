@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { authOperations } from '../../redux/auth';
 
 import s from './views.module.css';
+import CssTextField from '../../helpers/constatsStyles';
 
 class LoginView extends Component {
   state = {
@@ -30,28 +31,25 @@ class LoginView extends Component {
         <h1>Login page</h1>
 
         <form onSubmit={this.handleSubmit} className={s.form}>
-          <label className={s.label}>
-            Email
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={this.handleChange}
-              className={s.input}
-            />
-          </label>
+          <CssTextField
+            type="email"
+            name="email"
+            value={email}
+            onChange={this.handleChange}
+            variant="outlined"
+            label="Name"
+            className={s.input}
+          />
 
-          <label className={s.label}>
-            Password
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={this.handleChange}
-              className={s.input}
-            />
-          </label>
-
+          <CssTextField
+            type="password"
+            name="password"
+            value={password}
+            onChange={this.handleChange}
+            variant="outlined"
+            label="Password"
+            className={s.input}
+          />
           <button type="submit" className={s.button}>
             Login
           </button>
